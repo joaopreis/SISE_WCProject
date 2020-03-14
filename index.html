@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>InSure App</title>
+
+    <meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+
+    <meta name="João Reis, José Carlos, José Rodrigues" content="SISE CW - Group 6">
+
+    <!--CSS Bootsrap-->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Load Angular JS -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+
+
+
+
+</head>
+
+<body>
+
+    <div ng-app="" ng-init="appstatus='main'" class="container" role="main">
+
+        <!--Main Page-->
+
+        <div ng-show="appstatus=='main'">
+
+            <div class="row justify-content-center">
+
+                <img src="img/new-logo.png"></img>
+
+            </div>
+
+            <br />
+
+            <div class="row justify-content-center">
+
+                <h1 class="display-4" align="center">InSure Quotation Web App</h1>
+
+            </div>
+
+            <br />
+
+            <div class="row justify-content-center">
+
+                <h2 class="display-6" align="center">Select the insurance product you are interested in:</h2>
+
+            </div>
+
+            <br /><br /><br />
+
+            <!--Main Buttons-->
+
+            <div class="row justify-content-center">
+
+                <div class="col-md-4" align="center">
+
+                    <span type="button" class="btn btn-link btn-lg" ng-click="appstatus='auto'">
+                        <img src="img/car.png" alt="Auto Insurance" width="80" height="80" />
+                        <br />
+
+                    </span>
+                    <h3> Vehicle Insurance</h3>
+
+                </div>
+
+                <div class="col-md-4" align="center">
+
+                    <span type="button" class="btn btn-link btn-lg" ng-click="appstatus='health'">
+                        <img src="img/health-new.png" alt="Auto Insurance" width="80" height="80" />
+
+                    </span>
+                    <br />
+                    <h3> Health Insurance</h3>
+                </div>
+
+                <div class="col-md-4" align="center">
+
+                    <span type="button" class="btn btn-link btn-lg" ng-click="appstatus='home'">
+                        <img src="img/mortgage.png" alt="Auto Insurance" width="80" height="80" />
+                    </span>
+                    <br />
+                    <h3> Home Insurance</h3>
+
+                </div>
+
+            </div>
+
+            <!--Main Buttons/-->
+
+        </div>
+
+        <!--Main Page/-->
+
+        <div ng-show="appstatus!='main'" class="row justify-content-center">
+
+            <img src="img/new-logo.png" />
+
+        </div>
+
+        <!--Under development page-->
+
+        <div ng-show="appstatus=='home'||appstatus=='health' ||appstatus=='underdev'" align="center">
+
+            <br />
+
+            <div class="row justify-content-center">
+
+                <h1 class="display-4">Sorry!</h1>
+
+            </div>
+
+            <br />
+
+            <div class="row justify-content-center">
+
+                <img src="img/conteudo.png" width="150" height="150"></img>
+
+            </div>
+
+            <br />
+
+            <div class="row justify-content-center">
+
+                <h2>Funcionality under development!</h2>
+
+            </div>
+
+            <br />
+
+            <div class="row justify-content-center">
+
+                <span type="button" class="btn btn-secondary" ng-click="appstatus='main'">Back</span>
+
+            </div>
+
+
+        </div>
+
+        <!--Under development page/-->
+
+        <!--Website page-->
+
+        <div ng-show="appstatus=='website'" align="center">
+
+            <br />
+
+            <div class="row justify-content-center">
+
+                <h1 class="display-4">Sorry!</h1>
+
+            </div>
+
+            <br/>
+
+            <div class="row justify-content-center">
+
+                <img  src="img/seo-e-web.png" width="150" height="150"/>
+
+            </div>
+
+            <br />
+
+            <div class="row justify-content-center">
+
+                <h2>Website under maintenance!</h2>
+
+            </div>
+
+            <br />
+
+            <div class="row justify-content-center">
+
+                <span type="button" class="btn btn-secondary" ng-click="appstatus='main'">Back</span>
+
+            </div>
+
+
+        </div>
+
+        <!--Website page/-->
+
+        <!-- Footer -->
+        <footer class="pt-4 my-md-5 pt-md-5 border-top">
+
+            <!-- Grid row -->
+            <div class="row justify-content-center">
+
+                <hr class="clearfix w-100 d-md-none">
+
+                <div class="col-md-3" align="left">
+
+                    <!-- Links -->
+                    <h4 class="font-weight-bold text-uppercase mt-3 mb-4">
+                        Quotations</h4>
+
+                    <ul class="list-unstyled" style="font-size:10pt;">
+                        <li>
+                            <a class="text-muted" href="#!" ng-click="appstatus='underdev'">Check Quotation</a>
+                        </li>
+                        <li>
+                            <a class="text-muted" href="#!" ng-click="appstatus='main'">Request Quotation</a>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <hr class="clearfix w-100 d-md-none">
+
+                <div class="col-md-3" align="left">
+
+                    <!-- Links -->
+                    <h4 class="font-weight-bold text-uppercase mt-3 mb-4">Claims</h4>
+
+                    <ul class="list-unstyled" style="font-size:10pt;">
+                        <li>
+                            <a class="text-muted" href="#!" ng-click="appstatus='underdev'">Check Claim</a>
+                        </li>
+                        <li>
+                            <a class="text-muted" href="#!" ng-click="appstatus='underdev'">Submit Claim</a>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <hr class="clearfix w-100 d-md-none">
+
+                <div class="col-md-3" align="left">
+
+                    <!-- Links -->
+                    <h4 class="font-weight-bold text-uppercase mt-3 mb-4">Payments</h4>
+
+                    <ul class="list-unstyled" style="font-size:10pt;">
+                        <li>
+                            <a class="text-muted" href="#!" ng-click="appstatus='underdev'">Premium Payment</a>
+                        </li>
+                        <li>
+                            <a class="text-muted" href="#!" ng-click="appstatus='underdev'">Claim Payment</a>
+                        </li>
+                        <li>
+                    </ul>
+                </div>
+
+
+                <hr class="clearfix w-100 d-md-none">
+
+                <div class="col-md-3" align="left">
+
+                    <!-- Links -->
+                    <h4 class="font-weight-bold text-uppercase mt-3 mb-4">InSure Website</h4>
+
+                    <ul class="list-unstyled" style="font-size:10pt;">
+                        <li>
+                            <a class="text-muted" href="#!" ng-click="appstatus='website'">InSure.com</a>
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <!-- Footer Links -->
+
+            <hr>
+
+            <div class="footer-copyright text-center py-3">© 2020 Copyright:
+                <a href="https://mdbootstrap.com/"> InSure.com</a>
+            </div>
+
+        </footer>
+
+        <!--Footer/-->
+
+
+
+    </div>
+
+    <!--JavaScript-->
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
