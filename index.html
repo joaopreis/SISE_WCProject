@@ -19,22 +19,78 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
 
+    <script>
+        var app = angular.module('inSureApp', []);
+        app.controller('inSureCtrl', function ($scope) {
+            $scope.appstatus = "main";
+            $scope.product = {
+                product: "",
+                value: "",
+                brand: "",
+                model: "",
+                year: "",
+            };
+            $scope.candidate = {
+                name: "",
+                email: "",
+                nif: "",
+            };
+            $scope.validate = function () {
+                return ($scope.inSureCandidateQRForm.name.$dirty && $scope.inSureCandidateQRForm.name.$invalid) ||
+                    ($scope.inSureCandidateQRForm.email.$dirty && $scope.inSureCandidateQRForm.email.$invalid) ||
+                    ($scope.inSureCandidateQRForm.nif.$dirty && $scope.inSureCandidateQRForm.nif.$invalid) ||
+                    ($scope.inSureCandidateQRForm.name.$viewValue == '') ||
+                    ($scope.inSureCandidateQRForm.email.$viewValue == '') || ($scope.inSureCandidateQRForm.nif.$viewValue == '')
+                    || ($scope.inSureAutoQRForm.value.$dirty && $scope.inSureAutoQRForm.value.$invalid) ||
+                    ($scope.inSureAutoQRForm.brand.$dirty && $scope.inSureAutoQRForm.brand.$invalid)
+                    || ($scope.inSureAutoQRForm.model.$dirty && $scope.inSureAutoQRForm.model.$invalid)
+                    || ($scope.inSureAutoQRForm.value.$viewValue == '') || ($scope.inSureAutoQRForm.brand.$viewValue == '') ||
+                    ($scope.inSureAutoQRForm.model.$viewValue == '')
+                    || ($scope.inSureAutoQRForm.year.$viewValue == '') || ($scope.inSureAutoQRForm.product.$viewValue == null)
+            };
 
-
+            var start = 1970;
+            var end = new Date().getFullYear();
+            var options = "<option selected disabled value>Year</option>";
+            for (var year = start; year <= end; year++) {
+                options += "<option>" + year + "</option>";
+            }
+            document.getElementById("inputYear").innerHTML = options;
+        });
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
 
 </head>
 
 <body>
 
-    <div ng-app="" ng-init="appstatus='main'" class="container" role="main">
+    <div ng-app="inSureApp" ng-controller="inSureCtrl" class="container" role="main">
 
         <!--Main Page-->
 
         <div ng-show="appstatus=='main'">
 
+            <br />
+
             <div class="row justify-content-center">
 
-                <img src="img/new-logo.png"></img>
+                <img src="img/insure.png"></img>
 
             </div>
 
@@ -50,7 +106,7 @@
 
             <div class="row justify-content-center">
 
-                <h2 class="display-6" align="center">Select the insurance product you are interested in:</h2>
+                <h2 class="text-muted" align="center">Select the insurance product you are interested in:</h2>
 
             </div>
 
@@ -62,7 +118,7 @@
 
                 <div class="col-md-4" align="center">
 
-                    <span type="button" class="btn btn-link btn-lg" ng-click="appstatus='auto'">
+                    <span type="button" class="btn btn-link btn-lg" ng-click="appstatus='vehicle'">
                         <img src="img/car.png" alt="Auto Insurance" width="80" height="80" />
                         <br />
 
@@ -99,9 +155,255 @@
 
         <!--Main Page/-->
 
-        <div ng-show="appstatus!='main'" class="row justify-content-center">
+        <div ng-show="appstatus!='main'" class="row justify-content-center" align="center">
 
-            <img src="img/new-logo.png" />
+            <br />
+
+            <img src="img/insure.png" />
+            <br /><br /><br />
+
+        </div>
+
+        <!--Vehicle page-->
+
+        <div class="row justify-content-center" ng-show="appstatus=='vehicle'">
+
+            <br />
+
+            <h2 class="text-muted"><img src="img/car.png" class="img-circle" alt="Vehicle Insurance" width="60"
+                    height="60" border="2">&nbsp;Vehicle insurance quotation request form</h2>
+
+            <br /><br /><br /><br />
+
+            <div class="panel-group">
+
+                <!--Product information form-->
+
+                <div class="panel-heading">
+
+                    <h5>Product information</h5>
+
+                </div>
+
+                <div class="panel-body">
+
+                    <form class="needs-validation" name="inSureAutoQRForm">
+
+                        <div class="form-group">
+                            <label for="inputProduct">Insurance product</label>
+                            <select name="product" class="form-control" id="inputProduct" ng-model="product.product">
+                                <option selected disabled value>Select insurance product</option>
+                                <option>Standard</option>
+                                <option>Pay as you Drive</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputAddress" id=qrvalue>Insured value</label>
+                            <input type="number" name="value" class="form-control" ng-model="product.value" required
+                                aria-describedby="qrvalue" id="inputValue">
+                            <span style="color:red;"
+                                ng-show="inSureAutoQRForm.value.$dirty && inSureAutoQRForm.value.$invalid">
+                                <span ng-show="inSureAutoQRForm.value.$error.required">
+                                    Value is required.
+                                </span>
+                                <span ng-show="inSureAutoQRForm.value.$error.number">
+                                    Value is invalid.
+                                </span>
+                            </span>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="inputCarBrand" id="qrbrand">Car brand</label>
+                                <input type="text" name="brand" class="form-control" ng-model="product.brand" required
+                                    aria-describedby="qrbrand" id="inputBrand">
+                                <span style="color:red;"
+                                    ng-show="inSureAutoQRForm.brand.$dirty && inSureAutoQRForm.brand.$invalid">
+                                    <span ng-show="inSureAutoQRForm.brand.$error.required">
+                                        Brand is required.
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="inputCarModel" id="qrmodel">Car model</label>
+                                <input type="text" name="model" class="form-control" ng-model="product.model" required
+                                    aria-describedby="qrmodel" id="inputModel">
+                                <span style="color:red;"
+                                    ng-show="inSureAutoQRForm.model.$dirty && inSureAutoQRForm.model.$invalid">
+                                    <span ng-show="inSureAutoQRForm.model.$error.required">
+                                        Model is required.
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="inputYear" id="qryear">Year of first registration</label>
+                                <select name="year" class="form-control" id="inputYear" ng-model="product.year">
+
+                                </select>
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+                <!--Product information form/-->
+
+                <!--Candidate information form-->
+
+                <div class="panel-heading">
+
+                    <h5>Candidate information</h5>
+
+                </div>
+
+                <div class="panel-body">
+
+                    <form name="inSureCandidateQRForm">
+
+                        <div class="form-group">
+                            <label for="inputName" id="qrname">Name</label>
+                            <input type="text" name="name" class="form-control" ng-model="candidate.name" required
+                                aria-describedby="qrname" id="inputName">
+                            <span style="color:red;"
+                                ng-show="inSureCandidateQRForm.name.$dirty && inSureCandidateQRForm.name.$invalid">
+                                <span ng-show="inSureCandidateQRForm.name.$error.required">
+                                    Name is required.
+                                </span>
+                            </span>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="inputEmail" id="qremail">E-mail</label>
+                            <input type="email" name="email" class="form-control" ng-model="candidate.email" required
+                                aria-describedby="qremail" id="inputEmail">
+                            <span style="color:red;"
+                                ng-show="inSureCandidateQRForm.email.$dirty && inSureCandidateQRForm.email.$invalid">
+                                <span ng-show="inSureCandidateQRForm.email.$error.required">
+                                    Email is required.
+                                </span>
+                                <span ng-show="inSureCandidateQRForm.email.$error.email">
+                                    Email is invalid.
+                                </span>
+                            </span>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="inputNIF" id="qrnif">Tax number</label>
+                            <input type="text" name="nif" maxlength="9" pattern="[0-9]{9}" class="form-control"
+                                ng-model="candidate.nif" required aria-describedby="qrnif" id="inputNIF">
+                            <span style="color:red;"
+                                ng-show="inSureCandidateQRForm.nif.$dirty && inSureCandidateQRForm.nif.$invalid">
+                                <span ng-show="inSureCandidateQRForm.nif.$error.required">
+                                    Tax number is required.
+                                </span>
+                                <span ng-show="inSureCandidateQRForm.nif.$error.pattern">
+                                    Tax number is invalid.
+                                </span>
+                            </span>
+                        </div>
+
+
+                    </form>
+
+                </div>
+
+                <!--Candidate information form/-->
+
+                <div class="row">
+
+                    <div class="col-md-6" align="right">
+
+                        <button class="btn btn-secondary" ng-click="appstatus='main'">Back</button>
+
+                    </div>
+
+                    <div class="col-md-6" align="left">
+
+                        <button class="btn btn-success" ng-disabled="validate()"
+                            ng-click="appstatus='submitted'">Submit</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--Vehicle page/-->
+
+        <!--Vehicle submitted page-->
+
+        <div class="row justify-content-center" ng-show="appstatus=='submitted'">
+
+            <br />
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 class="text-muted"><img src="img/car.png" class="img-circle" alt="Auto Insurance" width="40"
+                            height="40" border="2">&nbsp;Confirm quotation request submission </h2>
+                </div>
+                <div class="panel-body">
+                    <div class="alert alert-success" role="alert">
+
+                        <h5>Product information</h5>
+
+                        <table class="table" color="white">
+                            <tr>
+                                <td class="table-caption" align="left"><b>Insurance type:</b></td>
+                                <td>{{product.product}}</td>
+                                <td class="table-caption" align="left"><b>Insured value:</b></td>
+                                <td>{{product.value}}&nbsp;&euro;</td>
+                                <td class="table-caption" align="left"><b>Brand:</b></td>
+                                <td>{{product.brand}}</td>
+                                <td class="table-caption" align="left"><b>Model:</b></td>
+                                <td>{{product.model}}</td>
+                                <td class="table-caption" align="left"><b>Registration year:</b></td>
+                                <td>{{product.year}}</td>
+                            </tr>
+                        </table>
+
+                        <h5>Candidate information</h5>
+
+                        <table class="table" color="white">
+                            <tr>
+                                <td class="table-caption" width="20%" align="left"><b>Name:</b></td>
+                                <td>{{candidate.name}}</td>
+                            </tr>
+                            <tr>
+                                <td class="table-caption" align="left"><b>E-Mail:</b></td>
+                                <td>{{candidate.email}}</td>
+                            </tr>
+                            <tr>
+                                <td class="table-caption" align="left"><b>NIF:</b></td>
+                                <td>{{candidate.nif}}</td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6" align="right">
+                        <span type="button" class="btn btn-danger" ng-click="appstatus='vehicle'">Cancel</span>
+                    </div>
+                    <div class="col-md-6" align="left">
+                        <span type="button" class="btn btn-success" ng-click="appstatus='main'">Confirm</span>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+
 
         </div>
 
@@ -129,7 +431,7 @@
 
             <div class="row justify-content-center">
 
-                <h2>Funcionality under development!</h2>
+                <h2>Functionality under development!</h2>
 
             </div>
 
@@ -137,7 +439,7 @@
 
             <div class="row justify-content-center">
 
-                <span type="button" class="btn btn-secondary" ng-click="appstatus='main'">Back</span>
+                <button class="btn btn-secondary" ng-click="appstatus='main'">Back</button>
 
             </div>
 
@@ -158,11 +460,11 @@
 
             </div>
 
-            <br/>
+            <br />
 
             <div class="row justify-content-center">
 
-                <img  src="img/seo-e-web.png" width="150" height="150"/>
+                <img src="img/seo-e-web.png" width="150" height="150" />
 
             </div>
 
@@ -178,7 +480,7 @@
 
             <div class="row justify-content-center">
 
-                <span type="button" class="btn btn-secondary" ng-click="appstatus='main'">Back</span>
+                <button class="btn btn-secondary" ng-click="appstatus='main'">Back</button>
 
             </div>
 
