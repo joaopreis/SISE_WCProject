@@ -57,6 +57,7 @@
             }
             document.getElementById("inputYear").innerHTML = options;
         });
+        
         (function () {
             'use strict';
             window.addEventListener('load', function () {
@@ -191,7 +192,7 @@
 
                         <div class="form-group">
                             <label for="inputProduct">Insurance product</label>
-                            <select name="product" class="form-control" id="inputProduct" ng-model="product.product">
+                            <select name="product" class="form-control success" id="inputProduct" ng-model="product.product">
                                 <option selected disabled value>Select insurance product</option>
                                 <option>Standard</option>
                                 <option>Pay as you Drive</option>
@@ -573,7 +574,7 @@
             <hr>
 
             <div class="footer-copyright text-center py-3">© 2020 Copyright:
-                <a href="https://mdbootstrap.com/"> InSure.com</a>
+                <a href="#!" ng-click="appstatus='website'"> InSure.com</a>
             </div>
 
         </footer>
