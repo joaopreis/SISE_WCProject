@@ -1,0 +1,34 @@
+{
+  "products": [
+    {
+      "id": 0,
+      "name": "Basic Protection",
+      "descr": "Liability coverage including bodily injury and property damage"
+    },
+    {
+      "id": 1,
+      "name": "Extended Protection",
+      "descr": "All the protection of the Basic plus uninsured and underinsured motorist coverage"
+    },
+    {
+      "id": 2,
+      "name": "Pro Protection",
+      "descr": "All the benefits of Extended Protection plus comprehensive coverage including theft or vandalism"
+    },
+    {
+      "id": 3,
+      "name": "Silver Package",
+      "descr": "Pro plus premium collision coverage including extended repair or replacement of the car"
+    },
+    {
+      "id": 4,
+      "name": "Gold Package",
+      "descr": "Silver plus medical payments coverage including costs of hospital visits surgery and more"
+    },
+    {
+      "id": 5,
+      "name": "Platinum Package",
+      "descr": "Gold plus personal injury protection including other expenses like childcare or lost income"
+    }
+  ]
+}

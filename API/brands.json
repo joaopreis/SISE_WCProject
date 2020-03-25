@@ -1,0 +1,274 @@
+{
+  "brands": [
+    {
+      "id": 0,
+      "name": "Alfa Romeo",
+      "short_url": "alfa-romeo"
+    },
+    {
+      "id": 1,
+      "name": "Aston Martin",
+      "short_url": "aston-martin"
+    },
+    {
+      "id": 2,
+      "name": "Audi",
+      "short_url": "audi"
+    },
+    {
+      "id": 3,
+      "name": "Bentley",
+      "short_url": "bentley"
+    },
+    {
+      "id": 4,
+      "name": "BMW",
+      "short_url": "bmw"
+    },
+    {
+      "id": 5,
+      "name": "Cadillac",
+      "short_url": "cadillac"
+    },
+    {
+      "id": 6,
+      "name": "Chery",
+      "short_url": "chery"
+    },
+    {
+      "id": 7,
+      "name": "Chevrolet",
+      "short_url": "chevrolet"
+    },
+    {
+      "id": 8,
+      "name": "Chrysler",
+      "short_url": "chrysler"
+    },
+    {
+      "id": 9,
+      "name": "Citroen",
+      "short_url": "citroen"
+    },
+    {
+      "id": 10,
+      "name": "Dacia",
+      "short_url": "dacia"
+    },
+    {
+      "id": 11,
+      "name": "Daewoo",
+      "short_url": "daewoo"
+    },
+    {
+      "id": 12,
+      "name": "Daihatsu",
+      "short_url": "daihatsu"
+    },
+    {
+      "id": 13,
+      "name": "DFM",
+      "short_url": "dfm"
+    },
+    {
+      "id": 14,
+      "name": "Dodge",
+      "short_url": "dodge"
+    },
+    {
+      "id": 15,
+      "name": "Ferrari",
+      "short_url": "ferrari"
+    },
+    {
+      "id": 16,
+      "name": "Fiat",
+      "short_url": "fiat"
+    },
+    {
+      "id": 17,
+      "name": "Ford",
+      "short_url": "ford"
+    },
+    {
+      "id": 18,
+      "name": "Geely",
+      "short_url": "geely"
+    },
+    {
+      "id": 19,
+      "name": "Honda",
+      "short_url": "honda"
+    },
+    {
+      "id": 20,
+      "name": "Hyundai",
+      "short_url": "hyundai"
+    },
+    {
+      "id": 21,
+      "name": "Infiniti",
+      "short_url": "infiniti"
+    },
+    {
+      "id": 22,
+      "name": "Isuzu",
+      "short_url": "isuzu"
+    },
+    {
+      "id": 23,
+      "name": "Jaguar",
+      "short_url": "jaguar"
+    },
+    {
+      "id": 24,
+      "name": "Jeep",
+      "short_url": "jeep"
+    },
+    {
+      "id": 25,
+      "name": "Kia",
+      "short_url": "kia"
+    },
+    {
+      "id": 26,
+      "name": "Lada",
+      "short_url": "lada"
+    },
+    {
+      "id": 27,
+      "name": "Lamborghini",
+      "short_url": "lamborghini"
+    },
+    {
+      "id": 28,
+      "name": "Lancia",
+      "short_url": "lancia"
+    },
+    {
+      "id": 29,
+      "name": "Land Rover",
+      "short_url": "land-rover"
+    },
+    {
+      "id": 30,
+      "name": "Maserati",
+      "short_url": "maserati"
+    },
+    {
+      "id": 31,
+      "name": "Mazda",
+      "short_url": "mazda"
+    },
+    {
+      "id": 32,
+      "name": "Mercedes",
+      "short_url": "mercedes"
+    },
+    {
+      "id": 33,
+      "name": "Mini",
+      "short_url": "mini"
+    },
+    {
+      "id": 34,
+      "name": "Mitsubishi",
+      "short_url": "mitsubishi"
+    },
+    {
+      "id": 35,
+      "name": "Nissan",
+      "short_url": "nissan"
+    },
+    {
+      "id": 36,
+      "name": "Opel",
+      "short_url": "opel"
+    },
+    {
+      "id": 37,
+      "name": "Peugeot",
+      "short_url": "peugeot"
+    },
+    {
+      "id": 38,
+      "name": "Porsche",
+      "short_url": "porsche"
+    },
+    {
+      "id": 39,
+      "name": "Proton",
+      "short_url": "proton"
+    },
+    {
+      "id": 40,
+      "name": "Renault",
+      "short_url": "renault"
+    },
+    {
+      "id": 41,
+      "name": "Rover",
+      "short_url": "rover"
+    },
+    {
+      "id": 42,
+      "name": "Saab",
+      "short_url": "saab"
+    },
+    {
+      "id": 43,
+      "name": "Seat",
+      "short_url": "seat"
+    },
+    {
+      "id": 44,
+      "name": "Skoda",
+      "short_url": "skoda"
+    },
+    {
+      "id": 45,
+      "name": "Smart",
+      "short_url": "smart"
+    },
+    {
+      "id": 46,
+      "name": "SsangYong",
+      "short_url": "ssangyong"
+    },
+    {
+      "id": 47,
+      "name": "Subaru",
+      "short_url": "subaru"
+    },
+    {
+      "id": 48,
+      "name": "Suzuki",
+      "short_url": "suzuki"
+    },
+    {
+      "id": 49,
+      "name": "Tata",
+      "short_url": "tata"
+    },
+    {
+      "id": 50,
+      "name": "Tofaş",
+      "short_url": "tofas"
+    },
+    {
+      "id": 51,
+      "name": "Toyota",
+      "short_url": "toyota"
+    },
+    {
+      "id": 52,
+      "name": "Volkswagen",
+      "short_url": "volkswagen"
+    },
+    {
+      "id": 53,
+      "name": "Volvo",
+      "short_url": "volvo"
+    }
+  ]
+}
