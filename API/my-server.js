@@ -76,7 +76,7 @@ server.route({
 
 server.route({
     method: 'GET',
-    path: '/models',
+    path: '/insurance/models',
     handler: (request, h) => {
         return (JSON.stringify(models.filter(m=>m.brand_id==request.query.id)));
     }
