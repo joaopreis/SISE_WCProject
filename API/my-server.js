@@ -74,20 +74,11 @@ server.route({
     }
 });
 
-
 server.route({
     method: 'GET',
     path: '/models',
     handler: (request, h) => {
-        return (JSON.stringify(models));
-    }
-});
-
-server.route({
-    method: 'GET',
-    path: '/models/{id}',
-    handler: (request, h) => {
-        return (JSON.stringify(models.filter(m => m.brand_id == request.params.id)));
+        return (JSON.stringify(models.filter(m=>m.brand_id==request.query.id)));
     }
 });
 
