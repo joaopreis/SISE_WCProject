@@ -138,7 +138,7 @@
 
                         <div class="panel-body">
 
-                            <form name="inSureAutoQRForm">
+                            <form name="inSureAutoQRForm" id="insureAutoForm">
 
                                 <div class="form-group">
                                     <label for="inputProduct">Insurance product</label>
@@ -217,7 +217,7 @@
 
                         <div class="panel-body">
 
-                            <form name="inSureCandidateQRForm">
+                            <form name="inSureCandidateQRForm" id="insureCandidateForm">
 
                                 <div class="form-group">
                                     <label for="inputName" id="qrname">Name</label>
@@ -270,15 +270,20 @@
 
                         <!--Candidate information form/-->
 
-                        <div class="row">
+                        <div class="row justify-content-center">
 
-                            <div class="col-md-6" align="right">
+                            <div class="col-md-2" align="right">
 
                                 <button class="btn btn-secondary" ng-click="appstatus='main'">Back</button>
 
                             </div>
+                            <div class="col-md-2" align="center">
 
-                            <div class="col-md-6" align="left">
+                                <button class="btn btn-warning" ng-click="resetForm()">Reset</button>
+
+                            </div>
+
+                            <div class="col-md-2" align="left">
 
                                 <button class="btn btn-success" ng-disabled="validate()"
                                     ng-click="appstatus='submitted'">Submit</button>
