@@ -113,174 +113,182 @@
 
         <!--Vehicle page-->
 
-        <div class="row justify-content-center" ng-show="appstatus=='vehicle'">
+        <div ng-show="appstatus=='vehicle'">
 
             <br />
 
-            <h2 class="text-muted"><img src="img/car.png" class="img-circle" alt="Vehicle Insurance" width="60"
-                    height="60" border="2">&nbsp;Vehicle insurance quotation request form</h2>
+            <div class="row justify-content-center">
 
-            <br /><br /><br /><br />
+                <h2 class="text-muted"><img src="img/car.png" class="img-circle" alt="Vehicle Insurance" width="60"
+                        height="60" border="2">&nbsp;Vehicle insurance quotation request form</h2>
+            </div>
 
-            <div class="panel-group">
+            <br />
+            <div class="row justify-content-center">
+                <div class="col-md-7">
+                    <div class="panel-group">
 
-                <!--Product information form-->
+                        <!--Product information form-->
 
-                <div class="panel-heading">
+                        <div class="panel-heading">
 
-                    <h5>Product information</h5>
+                            <h5>Product information</h5>
 
-                </div>
-
-                <div class="panel-body">
-
-                    <form name="inSureAutoQRForm">
-
-                        <div class="form-group">
-                            <label for="inputProduct">Insurance product</label>
-                            <select name="product" class="form-control" id="inputProduct" ng-model="product.product"
-                                ng-click="getDescriptionData()">
-                                <option ng-repeat="p in products">{{p.name}}</option>
-                            </select>
-                            <span>{{description}}
-                            </span>
                         </div>
 
-                        <div class="form-group">
-                            <label for="inputAddress" id="qrvalue">Insured value</label>
-                            <input type="number" name="value" class="form-control" ng-model="product.value" required
-                                aria-describedby="qrvalue" id="inputValue">
-                            <span style="color:red;"
-                                ng-show="inSureAutoQRForm.value.$dirty && inSureAutoQRForm.value.$invalid">
-                                <span ng-show="inSureAutoQRForm.value.$error.required">
-                                    Value is required.
-                                </span>
-                                <span ng-show="inSureAutoQRForm.value.$error.number">
-                                    Value is invalid.
-                                </span>
-                            </span>
-                        </div>
+                        <div class="panel-body">
 
+                            <form name="inSureAutoQRForm">
 
-                        <div class="form-row">
-                            <div class="form-group col-md-4">
-                                <label for="inputCarBrand" id="qrbrand">Car brand</label>
-                                <select name="brands" class="form-control" ng-model="product.brand"
-                                    ng-click="getModelsData()" id="brands">
-                                    <option ng-repeat="b in brands">{{b.name}}</option>
-                                </select>
-                            </div>
-                            <script>
-                            </script>
-                            <div class="form-group col-md-4">
-                                <label for="inputCarModel" id="qrmodel">Car model</label>
-                                <select name="models" class="form-control" ng-model="product.model">
-                                    <option ng-repeat="m in models">{{m.name}}</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label for="inputYear" id="qryear">Year of first registration</label>
-                                <input type="number" name="year" maxlenght="4" pattern="[0-9]{4}" class="form-control" ng-model="product.year" required
-                                    aria-describedby="qryear" id="inputYear">
-                                <span style="color:red;"
-                                    ng-show="inSureAutoQRForm.year.$dirty && inSureAutoQRForm.year.$invalid">
-                                    <span ng-show="inSureAutoQRForm.year.$error.required">
-                                        Year is required.
+                                <div class="form-group">
+                                    <label for="inputProduct">Insurance product</label>
+                                    <select name="product" class="form-control" id="inputProduct"
+                                        ng-model="product.product" ng-click="getDescriptionData()">
+                                        <option ng-repeat="p in products">{{p.name}}</option>
+                                    </select>
+                                    <span>{{description}}
                                     </span>
-                                    <span ng-show="inSureAutoQRForm.year.$error.pattern || inSureAutoQRForm.year.$invalid">
-                                        Year is invalid.
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inputAddress" id="qrvalue">Insured value</label>
+                                    <input type="number" name="value" class="form-control" ng-model="product.value"
+                                        required aria-describedby="qrvalue" id="inputValue">
+                                    <span style="color:red;"
+                                        ng-show="inSureAutoQRForm.value.$dirty && inSureAutoQRForm.value.$invalid">
+                                        <span ng-show="inSureAutoQRForm.value.$error.required">
+                                            Value is required.
+                                        </span>
+                                        <span ng-show="inSureAutoQRForm.value.$error.number">
+                                            Value is invalid.
+                                        </span>
                                     </span>
-                                </span>
+                                </div>
+
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-4">
+                                        <label for="inputCarBrand" id="qrbrand">Car brand</label>
+                                        <select name="brands" class="form-control" ng-model="product.brand"
+                                            ng-click="getModelsData()" id="brands">
+                                            <option ng-repeat="b in brands">{{b.name}}</option>
+                                        </select>
+                                    </div>
+                                    <script>
+                                    </script>
+                                    <div class="form-group col-md-4">
+                                        <label for="inputCarModel" id="qrmodel">Car model</label>
+                                        <select name="models" class="form-control" ng-model="product.model">
+                                            <option ng-repeat="m in models">{{m.name}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="inputYear" id="qryear">Year of first registration</label>
+                                        <input type="number" name="year" maxlenght="4" pattern="[0-9]{4}"
+                                            class="form-control" ng-model="product.year" required
+                                            aria-describedby="qryear" id="inputYear">
+                                        <span style="color:red;"
+                                            ng-show="inSureAutoQRForm.year.$dirty && inSureAutoQRForm.year.$invalid">
+                                            <span ng-show="inSureAutoQRForm.year.$error.required">
+                                                Year is required.
+                                            </span>
+                                            <span
+                                                ng-show="inSureAutoQRForm.year.$error.pattern || inSureAutoQRForm.year.$invalid">
+                                                Year is invalid.
+                                            </span>
+                                        </span>
+                                    </div>
+
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                        <!--Product information form/-->
+
+                        <!--Candidate information form-->
+
+                        <div class="panel-heading">
+
+                            <h5>Candidate information</h5>
+
+                        </div>
+
+                        <div class="panel-body">
+
+                            <form name="inSureCandidateQRForm">
+
+                                <div class="form-group">
+                                    <label for="inputName" id="qrname">Name</label>
+                                    <input type="text" name="name" class="form-control" ng-model="candidate.name"
+                                        required aria-describedby="qrname" id="inputName">
+                                    <span style="color:red;"
+                                        ng-show="inSureCandidateQRForm.name.$dirty && inSureCandidateQRForm.name.$invalid">
+                                        <span ng-show="inSureCandidateQRForm.name.$error.required">
+                                            Name is required.
+                                        </span>
+                                    </span>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="inputEmail" id="qremail">E-mail</label>
+                                    <input type="email" name="email" class="form-control" ng-model="candidate.email"
+                                        required aria-describedby="qremail" id="inputEmail">
+                                    <span style="color:red;"
+                                        ng-show="inSureCandidateQRForm.email.$dirty && inSureCandidateQRForm.email.$invalid">
+                                        <span ng-show="inSureCandidateQRForm.email.$error.required">
+                                            Email is required.
+                                        </span>
+                                        <span ng-show="inSureCandidateQRForm.email.$error.email">
+                                            Email is invalid.
+                                        </span>
+                                    </span>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="inputNIF" id="qrnif">Tax number</label>
+                                    <input type="text" name="nif" maxlength="9" pattern="[0-9]{9}" class="form-control"
+                                        ng-model="candidate.nif" required aria-describedby="qrnif" id="inputNIF">
+                                    <span style="color:red;"
+                                        ng-show="inSureCandidateQRForm.nif.$dirty && inSureCandidateQRForm.nif.$invalid">
+                                        <span ng-show="inSureCandidateQRForm.nif.$error.required">
+                                            Tax number is required.
+                                        </span>
+                                        <span ng-show="inSureCandidateQRForm.nif.$error.pattern">
+                                            Tax number is invalid.
+                                        </span>
+                                    </span>
+                                </div>
+
+
+                            </form>
+
+                        </div>
+
+                        <!--Candidate information form/-->
+
+                        <div class="row">
+
+                            <div class="col-md-6" align="right">
+
+                                <button class="btn btn-secondary" ng-click="appstatus='main'">Back</button>
+
+                            </div>
+
+                            <div class="col-md-6" align="left">
+
+                                <button class="btn btn-success" ng-disabled="validate()"
+                                    ng-click="appstatus='submitted'">Submit</button>
+
                             </div>
 
                         </div>
-
-                    </form>
-
-                </div>
-
-                <!--Product information form/-->
-
-                <!--Candidate information form-->
-
-                <div class="panel-heading">
-
-                    <h5>Candidate information</h5>
-
-                </div>
-
-                <div class="panel-body">
-
-                    <form name="inSureCandidateQRForm">
-
-                        <div class="form-group">
-                            <label for="inputName" id="qrname">Name</label>
-                            <input type="text" name="name" class="form-control" ng-model="candidate.name" required
-                                aria-describedby="qrname" id="inputName">
-                            <span style="color:red;"
-                                ng-show="inSureCandidateQRForm.name.$dirty && inSureCandidateQRForm.name.$invalid">
-                                <span ng-show="inSureCandidateQRForm.name.$error.required">
-                                    Name is required.
-                                </span>
-                            </span>
-                        </div>
-
-
-                        <div class="form-group">
-                            <label for="inputEmail" id="qremail">E-mail</label>
-                            <input type="email" name="email" class="form-control" ng-model="candidate.email" required
-                                aria-describedby="qremail" id="inputEmail">
-                            <span style="color:red;"
-                                ng-show="inSureCandidateQRForm.email.$dirty && inSureCandidateQRForm.email.$invalid">
-                                <span ng-show="inSureCandidateQRForm.email.$error.required">
-                                    Email is required.
-                                </span>
-                                <span ng-show="inSureCandidateQRForm.email.$error.email">
-                                    Email is invalid.
-                                </span>
-                            </span>
-                        </div>
-
-
-                        <div class="form-group">
-                            <label for="inputNIF" id="qrnif">Tax number</label>
-                            <input type="text" name="nif" maxlength="9" pattern="[0-9]{9}" class="form-control"
-                                ng-model="candidate.nif" required aria-describedby="qrnif" id="inputNIF">
-                            <span style="color:red;"
-                                ng-show="inSureCandidateQRForm.nif.$dirty && inSureCandidateQRForm.nif.$invalid">
-                                <span ng-show="inSureCandidateQRForm.nif.$error.required">
-                                    Tax number is required.
-                                </span>
-                                <span ng-show="inSureCandidateQRForm.nif.$error.pattern">
-                                    Tax number is invalid.
-                                </span>
-                            </span>
-                        </div>
-
-
-                    </form>
-
-                </div>
-
-                <!--Candidate information form/-->
-
-                <div class="row">
-
-                    <div class="col-md-6" align="right">
-
-                        <button class="btn btn-secondary" ng-click="appstatus='main'">Back</button>
 
                     </div>
-
-                    <div class="col-md-6" align="left">
-
-                        <button class="btn btn-success" ng-disabled="validate()"
-                            ng-click="appstatus='submitted'">Submit</button>
-
-                    </div>
-
                 </div>
-
             </div>
 
         </div>
@@ -347,8 +355,8 @@
                             Confirm
                         </button>
                         <!-- Modal -->
-                        <div class="modal fade" id="modal" tabindex="-1" role="dialog"
-                            aria-labelledby="modalLabel" aria-hidden="true">
+                        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
+                            aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -358,7 +366,8 @@
                                         The quotation request has been submitted.
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-success" ng-click="appstatus='main'" data-dismiss="modal">Ok</button>
+                                        <button type="button" class="btn btn-success" ng-click="appstatus='main'"
+                                            data-dismiss="modal">Ok</button>
                                     </div>
                                 </div>
                             </div>
