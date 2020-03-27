@@ -45,7 +45,7 @@ app.controller('inSureCtrl', function ($scope, $http) {
     $scope.models = ['Trying to get data'];
     $scope.getModelsData = function () {
         var brand_id = $scope.brands.findIndex(brand => brand.name == $scope.product.brand);
-        $http.get('http://localhost:8080/models?id=' + brand_id).then(function (response) {
+        $http.get('http://localhost:8080/insurance/models?id=' + brand_id).then(function (response) {
             $scope.models = response.data
         }, function (error) {
             $scope.models = ['Error! Could not access database.']
